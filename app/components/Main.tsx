@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import MainDrop from './MainDrop';
 import Pictures from './Pictures';
+import CollectionInfo from './CollectionInfo';
 
 interface Collection {
   id: string;
@@ -25,13 +26,16 @@ export default function Main() {
   );
 
   return (
-    <div className="main-wrapper">
-      <MainDrop
-        selectedCollection={selectedCollection}
-        onSelect={setSelectedCollection}
-        collections={collections}
-      />
-      <Pictures selectedCollection={selectedCollection} />
-    </div>
+    <>
+      <div className="main-wrapper">
+        <MainDrop
+          selectedCollection={selectedCollection}
+          onSelect={setSelectedCollection}
+          collections={collections}
+        />
+        <Pictures selectedCollection={selectedCollection} />
+      </div>
+      <CollectionInfo selectedCollection={selectedCollection} />
+    </>
   );
 }
